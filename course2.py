@@ -24,10 +24,10 @@ print('my_module.str_', str_)
 my_int = 7
 print('my_int', my_int)
 
-my_float=6.444
+my_float = 6.444
 print('my_float', my_float, type(my_float))
 
-my_complex=3+5j
+my_complex = 3+5j
 print('my_complex', my_complex, type(my_complex))
 
 my_complex_from_int=complex(my_int)
@@ -65,5 +65,43 @@ print(R'linia 1\nlinia2\nlinia2\n')
 
 price = 10.00
 name = 'Hamburger'
-msg = 'Top product: Burger costs only $20.00'
+msg = 'Top product: {0}  costs only ${1:.2f}'.format(name, price)  # formatting from a database, 0 = placeholder 0
+msg = 'Top product: {my_placeholder1} costs only ${my_placeholder2:.2f}'.format(my_placeholder1=name, my_placeholder2 = price)
+msg = 'Top product: {name}  costs only ${price:.2f}'.format(name=name, price=price)
 print(msg)
+
+my_list = [1, 2, True, 'abc']
+# 0 1 2 3
+# -4 -3 -2 -1 #indexes in the list
+print(my_list)
+print(2 in my_list)  # true
+print(my_list[0])  # 1
+print(my_list[-4])  # 1
+new_list = my_list[:-1:2]  # -1 element will not be part of the new list, 2 is the step
+print(len(my_list))
+print(new_list)
+new_list = my_list[1:1:2]
+print(new_list)
+
+my_list[2] = False
+print(my_list)
+
+my_list[2] = ['a', [1, 2], 4, 5, 6]
+print(my_list[2][1][1])  # prints 2
+
+rev_list = my_list[::-1]  # creates the list in reverse
+print(rev_list)
+# tuples - lists that cannot be modified; uses less memory - 24 bits for a tuple, 40 bits for a list = IMMUTABLE
+
+tuple_list = [1, 2, 3]
+print(tuple_list)  # [1, 2, 3]
+tuple_list = tuple (tuple_list)
+print(tuple_list)  # (1, 2, 3)
+
+my_dict = {'a': 12, 'b': 12, 3: 22, 'b':100, 'abc': 15}  # b will have the last occurrence of key
+print(my_dict)
+print(my_dict['a'])
+print(my_dict.get['abc', 'my default value'])
+print( )
+if 'a' in my_dict:
+    print("a not in my_dict")
